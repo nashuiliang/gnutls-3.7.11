@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is last updated 15 May 2024 for version
+3.7.11 of GnuTLS.
+
+Copyright © 2001-2012, 2014, 2016, 2019, 2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License". -->
+<title>GnuTLS-Guile 3.7.11</title>
+
+<meta name="description" content="GnuTLS-Guile 3.7.11">
+<meta name="keywords" content="GnuTLS-Guile 3.7.11">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#Procedure-Index" rel="index" title="Procedure Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="#Preface" rel="next" title="Preface">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter-printindex {text-decoration: none}
+div.center {text-align:center}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+td.printindex-index-entry {vertical-align: top}
+td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
+ul.mark-bullet {list-style-type: disc}
+ul.toc-numbered-mark {list-style: none}
+body { 
+	margin: 2%;
+	padding: 0 5%;
+	background: #ffffff;
+}
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+    padding: 5px 5px 5px 5px;
+    background-color: #c2e0ff;
+    color: #336699;
+}
+h1 {
+    padding: 2em 2em 2em 5%;
+    color: white;
+    background: #336699;
+    text-align: center;
+    letter-spacing: 3px;
+}
+h2 { text-decoration: underline; }
+pre {
+  margin: 0 5%;
+  padding: 0.5em;
+}
+pre.example,pre.verbatim {
+  padding-bottom: 1em;
+
+  border: solid #c2e0ff;
+  background: #f0faff;
+  border-width: 1px 1px 1px 5px;
+  margin: 1em auto;
+  width: 90%;
+}
+
+div.node {
+  margin: 0 -5% 0 -2%;
+  padding: 0.5em 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+dd, li {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+div.float {
+
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+table {
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+  border-spacing: 7px;
+  width: 50%;
+}
+
+th {
+  padding: 0;
+  color: #336699;
+  background-color: #c2e0ff;
+  border: solid #000000;
+  border-width: 0px;
+  margin: 1em auto;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+td {
+  padding: 0;
+  border: solid #000000;
+  background-color: #f0faff;
+  border-width: 0px;
+  margin: 1em auto;
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 1em;
+}
+
+dl {
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+  width: 50%;
+
+  padding-left: 1em;
+  border: solid #c2e0ff;
+  background: #f0faff;
+  border-width: 5px 1px 1px 1px;
+  margin: 1em auto;
+}
+
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+
+
+
+
+
+
+
+
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#Preface" accesskey="n" rel="next">Preface</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h1 class="top" id="GnuTLS_002dGuile">GnuTLS-Guile</h1>
+
+<p>This manual is last updated 15 May 2024 for version
+3.7.11 of GnuTLS.
+</p>
+<p>Copyright &copy; 2001-2012, 2014, 2016, 2019, 2022 Free Software Foundation, Inc.
+</p>
+<blockquote class="quotation">
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled &ldquo;GNU Free
+Documentation License&rdquo;.
+</p></blockquote>
+
+
+<div class="element-contents" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Preface-1" href="#Preface">1 Preface</a></li>
+  <li><a id="toc-Guile-Preparations-1" href="#Guile-Preparations">2 Guile Preparations</a></li>
+  <li><a id="toc-Guile-API-Conventions-1" href="#Guile-API-Conventions">3 Guile API Conventions</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Enumerates-and-Constants-1" href="#Enumerates-and-Constants">3.1 Enumerates and Constants</a></li>
+    <li><a id="toc-Procedure-Names-1" href="#Procedure-Names">3.2 Procedure Names</a></li>
+    <li><a id="toc-Representation-of-Binary-Data-1" href="#Representation-of-Binary-Data">3.3 Representation of Binary Data</a></li>
+    <li><a id="toc-Input-and-Output-1" href="#Input-and-Output">3.4 Input and Output</a></li>
+    <li><a id="toc-Exception-Handling-1" href="#Exception-Handling">3.5 Exception Handling</a></li>
+  </ul></li>
+  <li><a id="toc-Guile-Examples-1" href="#Guile-Examples">4 Guile Examples</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Anonymous-Authentication-Guile-Example-1" href="#Anonymous-Authentication-Guile-Example">4.1 Anonymous Authentication Guile Example</a></li>
+  </ul></li>
+  <li><a id="toc-Guile-Reference-1" href="#Guile-Reference">5 Guile Reference</a></li>
+  <li><a id="toc-Copying-Information-1" href="#Copying-Information">Appendix A Copying Information</a></li>
+  <li><a id="toc-Procedure-Index-1" href="#Procedure-Index" rel="index">Procedure Index</a></li>
+  <li><a id="toc-Concept-Index-1" href="#Concept-Index" rel="index">Concept Index</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter-level-extent" id="Preface">
+<div class="nav-panel">
+<p>
+Next: <a href="#Guile-Preparations" accesskey="n" rel="next">Guile Preparations</a>, Previous: <a href="#Top" accesskey="p" rel="prev">GnuTLS-Guile</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Preface-1">1 Preface</h2>
+
+<p>This manual describes the <a class="uref" href="https://www.gnu.org/software/guile/">GNU Guile</a> Scheme programming interface to GnuTLS, which is distributed
+as part of <a class="uref" href="https://gnutls.org">GnuTLS</a>.  The reader is
+assumed to have basic knowledge of the protocol and library.  Details
+missing from this chapter may be found in Function reference,
+of the C API reference.
+</p>
+<p>At this stage, not all the C functions are available from Scheme, but
+a large subset thereof is available.
+</p>
+<hr>
+</div>
+<div class="chapter-level-extent" id="Guile-Preparations">
+<div class="nav-panel">
+<p>
+Next: <a href="#Guile-API-Conventions" accesskey="n" rel="next">Guile API Conventions</a>, Previous: <a href="#Preface" accesskey="p" rel="prev">Preface</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Guile-Preparations-1">2 Guile Preparations</h2>
+
+<p>The GnuTLS Guile bindings are available for the Guile 3.0 and 2.2
+series, as well as the legacy 2.0 series.
+</p>
+<p>By default they are installed under the GnuTLS installation directory,
+typically <samp class="file">/usr/local/share/guile/site/</samp>).  Normally Guile
+will not find the module there without help.  You may experience
+something like this:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ guile
+&hellip;
+scheme@(guile-user)&gt; (use-modules (gnutls))
+ERROR: no code for module (gnutls)
+</pre></div>
+
+<p>There are two ways to solve this.  The first is to make sure that when
+building GnuTLS, the Guile bindings will be installed in the same
+place where Guile looks.  You may do this by using the
+<code class="code">--with-guile-site-dir</code> parameter as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ ./configure --with-guile-site-dir=no
+</pre></div>
+
+<p>This will instruct GnuTLS to attempt to install the Guile bindings
+where Guile will look for them.  It will use <code class="code">guile-config info
+pkgdatadir</code> to learn the path to use.
+</p>
+<p>If Guile was installed into <code class="code">/usr</code>, you may also install GnuTLS
+using the same prefix:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ ./configure --prefix=/usr
+</pre></div>
+
+<p>If you want to specify the path to install the Guile bindings you can
+also specify the path directly:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ ./configure --with-guile-site-dir=/opt/guile/share/guile/site
+</pre></div>
+
+<p>The second solution requires some more work but may be easier to use
+if you do not have system administrator rights to your machine.  You
+need to instruct Guile so that it finds the GnuTLS Guile bindings.
+Either use the <code class="code">GUILE_LOAD_PATH</code> environment variable as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ GUILE_LOAD_PATH=&quot;/usr/local/share/guile/site:$GUILE_LOAD_PATH&quot; guile
+scheme@(guile-user)&gt; (use-modules (gnutls))
+scheme@(guile-user)&gt;
+</pre></div>
+
+<p>Alternatively, you can modify Guile&rsquo;s <code class="code">%load-path</code> variable
+(see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Build-Config">Guile&rsquo;s run-time options</a> in <cite class="cite">The GNU Guile
+Reference Manual</cite>).
+</p>
+<p>At this point, you might get an error regarding
+<samp class="file">guile-gnutls-v-2</samp> similar to:
+</p>
+<div class="example">
+<pre class="example-preformatted">gnutls.scm:361:1: In procedure dynamic-link in expression (load-extension &quot;guile-gnutls-v-2&quot; &quot;scm_init_gnutls&quot;):
+gnutls.scm:361:1: file: &quot;guile-gnutls-v-2&quot;, message: &quot;guile-gnutls-v-2.so: cannot open shared object file: No such file or directory&quot;
+</pre></div>
+
+<p>In this case, you will need to modify the run-time linker path, for
+example as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ LD_LIBRARY_PATH=/usr/local/lib GUILE_LOAD_PATH=/usr/local/share/guile/site guile
+scheme@(guile-user)&gt; (use-modules (gnutls))
+scheme@(guile-user)&gt;
+</pre></div>
+
+<p>To check that you got the intended GnuTLS library version, you may
+print the version number of the loaded library as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ guile
+scheme@(guile-user)&gt; (use-modules (gnutls))
+scheme@(guile-user)&gt; (gnutls-version)
+&quot;3.7.11&quot;
+scheme@(guile-user)&gt;
+</pre></div>
+
+
+<hr>
+</div>
+<div class="chapter-level-extent" id="Guile-API-Conventions">
+<div class="nav-panel">
+<p>
+Next: <a href="#Guile-Examples" accesskey="n" rel="next">Guile Examples</a>, Previous: <a href="#Guile-Preparations" accesskey="p" rel="prev">Guile Preparations</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Guile-API-Conventions-1">3 Guile API Conventions</h2>
+
+<p>This chapter details the conventions used by Guile API, as well as
+specificities of the mapping of the C API to Scheme.
+</p>
+
+<ul class="mini-toc">
+<li><a href="#Enumerates-and-Constants" accesskey="1">Enumerates and Constants</a></li>
+<li><a href="#Procedure-Names" accesskey="2">Procedure Names</a></li>
+<li><a href="#Representation-of-Binary-Data" accesskey="3">Representation of Binary Data</a></li>
+<li><a href="#Input-and-Output" accesskey="4">Input and Output</a></li>
+<li><a href="#Exception-Handling" accesskey="5">Exception Handling</a></li>
+</ul>
+<hr>
+<div class="section-level-extent" id="Enumerates-and-Constants">
+<div class="nav-panel">
+<p>
+Next: <a href="#Procedure-Names" accesskey="n" rel="next">Procedure Names</a>, Up: <a href="#Guile-API-Conventions" accesskey="u" rel="up">Guile API Conventions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Enumerates-and-Constants-1">3.1 Enumerates and Constants</h3>
+
+<a class="index-entry-id" id="index-enumerate"></a>
+<a class="index-entry-id" id="index-constant"></a>
+
+<p>Lots of enumerates and constants are used in the GnuTLS C API.  For
+each C enumerate type, a disjoint Scheme type is used&mdash;thus,
+enumerate values and constants are not represented by Scheme symbols
+nor by integers.  This makes it impossible to use an enumerate value
+of the wrong type on the Scheme side: such errors are automatically
+detected by type-checking.
+</p>
+<p>The enumerate values are bound to variables exported by the
+<code class="code">(gnutls)</code> module.  These variables
+are named according to the following convention:
+</p>
+<ul class="itemize mark-bullet">
+<li>All variable names are lower-case; the underscore <code class="code">_</code>
+character used in the C API is replaced by hyphen <code class="code">-</code>.
+</li><li>All variable names are prepended by the name of the enumerate
+type and the slash <code class="code">/</code> character.
+</li><li>In some cases, the variable name is made more explicit than the
+one of the C API, e.g., by avoid abbreviations.
+</li></ul>
+
+<p>Consider for instance this C-side enumerate:
+</p>
+<div class="example">
+<pre class="example-preformatted">typedef enum
+{
+  GNUTLS_CRD_CERTIFICATE = 1,
+  GNUTLS_CRD_ANON,
+  GNUTLS_CRD_SRP,
+  GNUTLS_CRD_PSK
+} gnutls_credentials_type_t;
+</pre></div>
+
+<p>The corresponding Scheme values are bound to the following variables
+exported by the <code class="code">(gnutls)</code> module:
+</p>
+<div class="example">
+<pre class="example-preformatted">credentials/certificate
+credentials/anonymous
+credentials/srp
+credentials/psk
+</pre></div>
+
+<p>Hopefully, most variable names can be deduced from this convention.
+</p>
+<p>Scheme-side &ldquo;enumerate&rdquo; values can be compared using <code class="code">eq?</code>
+(see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Equality">equality predicates</a> in <cite class="cite">The GNU Guile Reference
+Manual</cite>).  Consider the following example:
+</p>
+<a class="index-entry-id" id="index-session_002dcipher"></a>
+
+<div class="example">
+<pre class="example-preformatted">(let ((session (make-session connection-end/client)))
+
+  ;;
+  ;; ...
+  ;;
+
+  ;; Check the ciphering algorithm currently used by SESSION.
+  (if (eq? cipher/arcfour (session-cipher session))
+      (format #t &quot;We're using the ARCFOUR algorithm&quot;)))
+</pre></div>
+
+<p>In addition, all enumerate values can be converted to a human-readable
+string, in a type-specific way.  For instance, <code class="code">(cipher-&gt;string
+cipher/arcfour)</code> yields <code class="code">&quot;ARCFOUR 128&quot;</code>, while
+<code class="code">(key-usage-&gt;string key-usage/digital-signature)</code> yields
+<code class="code">&quot;digital-signature&quot;</code>.  Note that these strings may not be
+sufficient for use in a user interface since they are fairly concise
+and not internationalized.
+</p>
+
+<hr>
+</div>
+<div class="section-level-extent" id="Procedure-Names">
+<div class="nav-panel">
+<p>
+Next: <a href="#Representation-of-Binary-Data" accesskey="n" rel="next">Representation of Binary Data</a>, Previous: <a href="#Enumerates-and-Constants" accesskey="p" rel="prev">Enumerates and Constants</a>, Up: <a href="#Guile-API-Conventions" accesskey="u" rel="up">Guile API Conventions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Procedure-Names-1">3.2 Procedure Names</h3>
+
+<p>Unlike C functions in GnuTLS, the corresponding Scheme procedures are
+named in a way that is close to natural English.  Abbreviations are
+also avoided.  For instance, the Scheme procedure corresponding to
+<code class="code">gnutls_certificate_set_dh_params</code> is named
+<code class="code">set-certificate-credentials-dh-parameters!</code>.  The <code class="code">gnutls_</code>
+prefix is always omitted from variable names since a similar effect
+can be achieved using Guile&rsquo;s nifty binding renaming facilities,
+should it be needed (see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Using-Guile-Modules">Using Guile Modules</a> in <cite class="cite">The GNU
+Guile Reference Manual</cite>).
+</p>
+<p>Often Scheme procedure names differ from C function names in a way
+that makes it clearer what objects they operate on.  For example, the
+Scheme procedure named <code class="code">set-session-transport-port!</code> corresponds
+to <code class="code">gnutls_transport_set_ptr</code>, making it clear that this
+procedure applies to session.
+</p>
+<hr>
+</div>
+<div class="section-level-extent" id="Representation-of-Binary-Data">
+<div class="nav-panel">
+<p>
+Next: <a href="#Input-and-Output" accesskey="n" rel="next">Input and Output</a>, Previous: <a href="#Procedure-Names" accesskey="p" rel="prev">Procedure Names</a>, Up: <a href="#Guile-API-Conventions" accesskey="u" rel="up">Guile API Conventions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Representation-of-Binary-Data-1">3.3 Representation of Binary Data</h3>
+
+<p>Many procedures operate on binary data.  For instance,
+<code class="code">pkcs3-import-dh-parameters</code> expects binary data as input.
+</p>
+<a class="index-entry-id" id="index-bytevectors"></a>
+<a class="index-entry-id" id="index-SRFI_002d4"></a>
+<a class="index-entry-id" id="index-homogeneous-vector"></a>
+<p>Binary data is represented on the Scheme side using bytevectors
+(see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Bytevectors">Bytevectors</a> in <cite class="cite">The GNU Guile Reference Manual</cite>).
+Homogeneous vectors such as SRFI-4 <code class="code">u8vector</code>s can also be
+used<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+</p>
+<p>As an example, generating and then exporting Diffie-Hellman parameters
+in the PEM format can be done as follows:
+</p>
+<a class="index-entry-id" id="index-make_002ddh_002dparameters"></a>
+<a class="index-entry-id" id="index-pkcs3_002dexport_002ddh_002dparameters"></a>
+<a class="index-entry-id" id="index-x509_002dcertificate_002dformat_002fpem"></a>
+
+<div class="example">
+<pre class="example-preformatted">(let* ((dh  (make-dh-parameters 1024))
+       (pem (pkcs3-export-dh-parameters dh 
+                                        x509-certificate-format/pem)))
+  (call-with-output-file &quot;some-file.pem&quot;
+    (lambda (port)
+      (uniform-vector-write pem port))))
+</pre></div>
+
+
+<hr>
+</div>
+<div class="section-level-extent" id="Input-and-Output">
+<div class="nav-panel">
+<p>
+Next: <a href="#Exception-Handling" accesskey="n" rel="next">Exception Handling</a>, Previous: <a href="#Representation-of-Binary-Data" accesskey="p" rel="prev">Representation of Binary Data</a>, Up: <a href="#Guile-API-Conventions" accesskey="u" rel="up">Guile API Conventions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Input-and-Output-1">3.4 Input and Output</h3>
+
+<a class="index-entry-id" id="index-set_002dsession_002dtransport_002dport_0021"></a>
+<a class="index-entry-id" id="index-set_002dsession_002dtransport_002dfd_0021"></a>
+
+<p>The underlying transport of a TLS session can be any Scheme
+input/output port (see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Ports-and-File-Descriptors">Ports and File Descriptors</a> in <cite class="cite">The GNU
+Guile Reference Manual</cite>).  This has to be specified using
+<code class="code">set-session-transport-port!</code>.
+</p>
+<p>However, for better performance, a raw file descriptor can be
+specified, using <code class="code">set-session-transport-fd!</code>.  For instance, if
+the transport layer is a socket port over an OS-provided socket, you
+can use the <code class="code">port-&gt;fdes</code> or <code class="code">fileno</code> procedure to obtain the
+underlying file descriptor and pass it to
+<code class="code">set-session-transport-fd!</code>  (see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Ports-and-File-Descriptors"><code class="code">port-&gt;fdes</code> and <code class="code">fileno</code></a> in <cite class="cite">The GNU Guile Reference
+Manual</cite>).  This would work as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">(let ((socket (socket PF_INET SOCK_STREAM 0))
+      (session (make-session connection-end/client)))
+
+  ;;
+  ;; Establish a TCP connection...
+  ;;
+
+  ;; Use the file descriptor that underlies SOCKET.
+  (set-session-transport-fd! session (fileno socket)))
+</pre></div>
+
+<a class="index-entry-id" id="index-session_002drecord_002dport"></a>
+
+<p>Once a TLS session is established, data can be communicated through it
+(i.e., <em class="emph">via</em> the TLS record layer) using the port returned by
+<code class="code">session-record-port</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">(let ((session (make-session connection-end/client)))
+
+  ;;
+  ;; Initialize the various parameters of SESSION, set up
+  ;; a network connection, etc.
+  ;;
+
+  (let ((i/o (session-record-port session)))
+    (display &quot;Hello peer!&quot; i/o)
+    (let ((greetings (read i/o)))
+
+      ;; &hellip;
+
+      (bye session close-request/rdwr))))
+</pre></div>
+
+<a class="index-entry-id" id="index-buffering"></a>
+<p>Note that each write to the session record port leads to the
+transmission of an encrypted TLS &ldquo;Application Data&rdquo; packet.  In the
+above example, we create an Application Data packet for the 11 bytes for
+the string that we write.  This is not efficient both in terms of CPU
+usage and bandwidth (each packet adds at least 5 bytes of overhead and
+can lead to one <code class="code">write</code> system call), so we recommend that
+applications do their own buffering.
+</p>
+<a class="index-entry-id" id="index-record_002dsend"></a>
+<a class="index-entry-id" id="index-record_002dreceive_0021"></a>
+
+<p>A lower-level I/O API is provided by <code class="code">record-send</code> and
+<code class="code">record-receive!</code> which take a bytevector (or a SRFI-4 vector) to
+represent the data sent or received.  While it might improve
+performance, it is much less convenient than the session record port and
+should rarely be needed.
+</p>
+
+<hr>
+</div>
+<div class="section-level-extent" id="Exception-Handling">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Input-and-Output" accesskey="p" rel="prev">Input and Output</a>, Up: <a href="#Guile-API-Conventions" accesskey="u" rel="up">Guile API Conventions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Exception-Handling-1">3.5 Exception Handling</h3>
+
+<a class="index-entry-id" id="index-exceptions"></a>
+<a class="index-entry-id" id="index-errors"></a>
+<a class="index-entry-id" id="index-gnutls_002derror"></a>
+<a class="index-entry-id" id="index-error_002d_003estring"></a>
+
+<p>GnuTLS errors are implemented as Scheme exceptions (see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#Exceptions">exceptions in Guile</a> in <cite class="cite">The GNU Guile Reference Manual</cite>).  Each
+time a GnuTLS function returns an error, an exception with key
+<code class="code">gnutls-error</code> is raised.  The additional arguments that are
+thrown include an error code and the name of the GnuTLS procedure that
+raised the exception.  The error code is pretty much like an enumerate
+value: it is one of the <code class="code">error/</code> variables exported by the
+<code class="code">(gnutls)</code> module (see <a class="pxref" href="#Enumerates-and-Constants">Enumerates and Constants</a>).  Exceptions
+can be turned into error messages using the <code class="code">error-&gt;string</code>
+procedure.
+</p>
+<p>The following examples illustrates how GnuTLS exceptions can be
+handled:
+</p>
+<div class="example">
+<pre class="example-preformatted">(let ((session (make-session connection-end/server)))
+
+  ;;
+  ;; ...
+  ;;
+
+  (catch 'gnutls-error
+    (lambda ()
+      (handshake session))
+    (lambda (key err function . currently-unused)
+      (format (current-error-port)
+              &quot;a GnuTLS error was raised by `~a': ~a~%&quot;
+              function (error-&gt;string err)))))
+</pre></div>
+
+<p>Again, error values can be compared using <code class="code">eq?</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">    ;; `gnutls-error' handler.
+    (lambda (key err function . currently-unused)
+      (if (eq? err error/fatal-alert-received)
+          (format (current-error-port)
+                  &quot;a fatal alert was caught!~%&quot;)
+          (format (current-error-port)
+                  &quot;something bad happened: ~a~%&quot;
+                  (error-&gt;string err))))
+</pre></div>
+
+<p>Note that the <code class="code">catch</code> handler is currently passed only 3
+arguments but future versions might provide it with additional
+arguments.  Thus, it must be prepared to handle more than 3 arguments,
+as in this example.
+</p>
+
+<hr>
+</div>
+</div>
+<div class="chapter-level-extent" id="Guile-Examples">
+<div class="nav-panel">
+<p>
+Next: <a href="#Guile-Reference" accesskey="n" rel="next">Guile Reference</a>, Previous: <a href="#Guile-API-Conventions" accesskey="p" rel="prev">Guile API Conventions</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Guile-Examples-1">4 Guile Examples</h2>
+
+<p>This chapter provides examples that illustrate common use cases.
+</p>
+
+<ul class="mini-toc">
+<li><a href="#Anonymous-Authentication-Guile-Example" accesskey="1">Anonymous Authentication Guile Example</a></li>
+</ul>
+<hr>
+<div class="section-level-extent" id="Anonymous-Authentication-Guile-Example">
+<div class="nav-panel">
+<p>
+Up: <a href="#Guile-Examples" accesskey="u" rel="up">Guile Examples</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Anonymous-Authentication-Guile-Example-1">4.1 Anonymous Authentication Guile Example</h3>
+
+<p><em class="dfn">Anonymous authentication</em> is very easy to use.  No certificates
+are needed by the communicating parties.  Yet, it allows them to
+benefit from end-to-end encryption and integrity checks.
+</p>
+<p>The client-side code would look like this (assuming <var class="var">some-socket</var>
+is bound to an open socket port):
+</p>
+<a class="index-entry-id" id="index-connection_002dend_002fclient"></a>
+<a class="index-entry-id" id="index-kx_002fanon_002ddh"></a>
+<a class="index-entry-id" id="index-close_002drequest_002frdwr"></a>
+
+<div class="example">
+<pre class="example-preformatted">;; Client-side.
+
+(let ((client (make-session connection-end/client)))
+  ;; Use the default settings.
+  (set-session-default-priority! client)
+
+  ;; Don't use certificate-based authentication.
+  (set-session-certificate-type-priority! client '())
+
+  ;; Request the &quot;anonymous Diffie-Hellman&quot; key exchange method.
+  (set-session-kx-priority! client (list kx/anon-dh))
+
+  ;; Specify the underlying socket.
+  (set-session-transport-fd! client (fileno some-socket))
+
+  ;; Create anonymous credentials.
+  (set-session-credentials! client
+                            (make-anonymous-client-credentials))
+
+  ;; Perform the TLS handshake with the server.
+  (handshake client)
+
+  ;; Send data over the TLS record layer.
+  (write &quot;hello, world!&quot; (session-record-port client))
+
+  ;; Terminate the TLS session.
+  (bye client close-request/rdwr))
+</pre></div>
+
+<p>The corresponding server would look like this (again, assuming
+<var class="var">some-socket</var> is bound to a socket port):
+</p>
+<a class="index-entry-id" id="index-connection_002dend_002fserver"></a>
+
+<div class="example">
+<pre class="example-preformatted">;; Server-side.
+
+(let ((server (make-session connection-end/server)))
+  (set-session-default-priority! server)
+  (set-session-certificate-type-priority! server '())
+  (set-session-kx-priority! server (list kx/anon-dh))
+
+  ;; Specify the underlying transport socket.
+  (set-session-transport-fd! server (fileno some-socket))
+
+  ;; Create anonymous credentials.
+  (let ((cred (make-anonymous-server-credentials))
+        (dh-params (make-dh-parameters 1024)))
+    ;; Note: DH parameter generation can take some time.
+    (set-anonymous-server-dh-parameters! cred dh-params)
+    (set-session-credentials! server cred))
+
+  ;; Perform the TLS handshake with the client.
+  (handshake server)
+
+  ;; Receive data over the TLS record layer.
+  (let ((message (read (session-record-port server))))
+    (format #t &quot;received the following message: ~a~%&quot;
+            message)
+
+    (bye server close-request/rdwr)))
+</pre></div>
+
+<p>This is it!
+</p>
+
+<hr>
+</div>
+</div>
+<div class="chapter-level-extent" id="Guile-Reference">
+<div class="nav-panel">
+<p>
+Next: <a href="#Copying-Information" accesskey="n" rel="next">Copying Information</a>, Previous: <a href="#Guile-Examples" accesskey="p" rel="prev">Guile Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Guile-Reference-1">5 Guile Reference</h2>
+
+<p>This chapter lists the GnuTLS Scheme procedures exported by the
+<code class="code">(gnutls)</code> module (see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/guile.html#The-Guile-module-system">The Guile module system</a> in <cite class="cite">The
+GNU Guile Reference Manual</cite>).
+</p>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dlog_002dlevel_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-log-level!</strong> <var class="def-var-arguments">level</var><a class="copiable-link" href='#index-set_002dlog_002dlevel_0021'> &para;</a></span></dt>
+<dd><p>Enable GnuTLS logging up to <var class="var">level</var> (an integer).
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dlog_002dprocedure_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-log-procedure!</strong> <var class="def-var-arguments">proc</var><a class="copiable-link" href='#index-set_002dlog_002dprocedure_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">proc</var> (a two-argument procedure) as the global GnuTLS log procedure.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025set_002dcertificate_002dcredentials_002dopenpgp_002dkeys_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%set-certificate-credentials-openpgp-keys!</strong> <var class="def-var-arguments">cred pub sec</var><a class="copiable-link" href='#index-_0025set_002dcertificate_002dcredentials_002dopenpgp_002dkeys_0021'> &para;</a></span></dt>
+<dd><p>Use certificate <var class="var">pub</var> and secret key <var class="var">sec</var> in certificate credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dkeyring_002dcontains_002dkey_002did_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-keyring-contains-key-id?</strong> <var class="def-var-arguments">keyring id</var><a class="copiable-link" href='#index-_0025openpgp_002dkeyring_002dcontains_002dkey_002did_003f'> &para;</a></span></dt>
+<dd><p>Return <code class="code">#f</code> if key ID <var class="var">id</var> is in <var class="var">keyring</var>, <code class="code">#f</code> otherwise.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-import_002dopenpgp_002dkeyring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">import-openpgp-keyring</strong> <var class="def-var-arguments">data format</var><a class="copiable-link" href='#index-import_002dopenpgp_002dkeyring'> &para;</a></span></dt>
+<dd><p>Import <var class="var">data</var> (a u8vector) according to <var class="var">format</var> and return the imported keyring.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dusage"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-usage</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dusage'> &para;</a></span></dt>
+<dd><p>Return a list of values denoting the key usage of <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dversion"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-version</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dversion'> &para;</a></span></dt>
+<dd><p>Return the version of the OpenPGP message format (RFC2440) honored by <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dalgorithm"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-algorithm</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dalgorithm'> &para;</a></span></dt>
+<dd><p>Return two values: the certificate algorithm used by <var class="var">key</var> and the number of bits used.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dnames"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-names</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dnames'> &para;</a></span></dt>
+<dd><p>Return the list of names for <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dname"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-name</strong> <var class="def-var-arguments">key index</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dname'> &para;</a></span></dt>
+<dd><p>Return the <var class="var">index</var>th name of <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dfingerprint"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-fingerprint</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dfingerprint'> &para;</a></span></dt>
+<dd><p>Return a new u8vector denoting the fingerprint of <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002dfingerprint_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-fingerprint!</strong> <var class="def-var-arguments">key fpr</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002dfingerprint_0021'> &para;</a></span></dt>
+<dd><p>Store in <var class="var">fpr</var> (a u8vector) the fingerprint of <var class="var">key</var>.  Return the number of bytes stored in <var class="var">fpr</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002did_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-id!</strong> <var class="def-var-arguments">key id</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002did_0021'> &para;</a></span></dt>
+<dd><p>Store the ID (an 8 byte sequence) of certificate <var class="var">key</var> in <var class="var">id</var> (a u8vector).
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025openpgp_002dcertificate_002did"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%openpgp-certificate-id</strong> <var class="def-var-arguments">key</var><a class="copiable-link" href='#index-_0025openpgp_002dcertificate_002did'> &para;</a></span></dt>
+<dd><p>Return the ID (an 8-element u8vector) of certificate <var class="var">key</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025import_002dopenpgp_002dprivate_002dkey"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%import-openpgp-private-key</strong> <var class="def-var-arguments">data format [pass]</var><a class="copiable-link" href='#index-_0025import_002dopenpgp_002dprivate_002dkey'> &para;</a></span></dt>
+<dd><p>Return a new OpenPGP private key object resulting from the import of <var class="var">data</var> (a uniform array) according to <var class="var">format</var>.  Optionally, a passphrase may be provided.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_0025import_002dopenpgp_002dcertificate"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">%import-openpgp-certificate</strong> <var class="def-var-arguments">data format</var><a class="copiable-link" href='#index-_0025import_002dopenpgp_002dcertificate'> &para;</a></span></dt>
+<dd><p>Return a new OpenPGP certificate object resulting from the import of <var class="var">data</var> (a uniform array) according to <var class="var">format</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dfingerprint"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-fingerprint</strong> <var class="def-var-arguments">cert algo</var><a class="copiable-link" href='#index-x509_002dcertificate_002dfingerprint'> &para;</a></span></dt>
+<dd><p>Return the fingerprint (a u8vector) of the certificate <var class="var">cert</var>, computed using the digest algorithm <var class="var">algo</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dsubject_002dalternative_002dname"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-subject-alternative-name</strong> <var class="def-var-arguments">cert index</var><a class="copiable-link" href='#index-x509_002dcertificate_002dsubject_002dalternative_002dname'> &para;</a></span></dt>
+<dd><p>Return two values: the alternative name type for <var class="var">cert</var> (i.e., one of the <code class="code">x509-subject-alternative-name/</code> values) and the actual subject alternative name (a string) at <var class="var">index</var>. Both values are <code class="code">#f</code> if no alternative name is available at <var class="var">index</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dsubject_002dkey_002did"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-subject-key-id</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dsubject_002dkey_002did'> &para;</a></span></dt>
+<dd><p>Return the subject key ID (a u8vector) for <var class="var">cert</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dauthority_002dkey_002did"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-authority-key-id</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dauthority_002dkey_002did'> &para;</a></span></dt>
+<dd><p>Return the key ID (a u8vector) of the X.509 certificate authority of <var class="var">cert</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dkey_002did"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-key-id</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dkey_002did'> &para;</a></span></dt>
+<dd><p>Return a statistically unique ID (a u8vector) for <var class="var">cert</var> that depends on its public key parameters.  This is normally a 20-byte SHA-1 hash.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dversion"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-version</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dversion'> &para;</a></span></dt>
+<dd><p>Return the version of <var class="var">cert</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dkey_002dusage"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-key-usage</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dkey_002dusage'> &para;</a></span></dt>
+<dd><p>Return the key usage of <var class="var">cert</var> (i.e., a list of <code class="code">key-usage/</code> values), or the empty list if <var class="var">cert</var> does not contain such information.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dpublic_002dkey_002dalgorithm"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-public-key-algorithm</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dpublic_002dkey_002dalgorithm'> &para;</a></span></dt>
+<dd><p>Return two values: the public key algorithm (i.e., one of the <code class="code">pk-algorithm/</code> values) of <var class="var">cert</var> and the number of bits used.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dsignature_002dalgorithm"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-signature-algorithm</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dsignature_002dalgorithm'> &para;</a></span></dt>
+<dd><p>Return the signature algorithm used by <var class="var">cert</var> (i.e., one of the <code class="code">sign-algorithm/</code> values).
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dmatches_002dhostname_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-matches-hostname?</strong> <var class="def-var-arguments">cert hostname</var><a class="copiable-link" href='#index-x509_002dcertificate_002dmatches_002dhostname_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">cert</var> matches <var class="var">hostname</var>, a string denoting a DNS host name.  This is the basic implementation of <a class="uref" href="https://tools.ietf.org/html/rfc2818">RFC 2818</a> (aka. HTTPS).
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dissuer_002ddn_002doid"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-issuer-dn-oid</strong> <var class="def-var-arguments">cert index</var><a class="copiable-link" href='#index-x509_002dcertificate_002dissuer_002ddn_002doid'> &para;</a></span></dt>
+<dd><p>Return the OID (a string) at <var class="var">index</var> from <var class="var">cert</var>&rsquo;s issuer DN.  Return <code class="code">#f</code> if no OID is available at <var class="var">index</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002ddn_002doid"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-dn-oid</strong> <var class="def-var-arguments">cert index</var><a class="copiable-link" href='#index-x509_002dcertificate_002ddn_002doid'> &para;</a></span></dt>
+<dd><p>Return OID (a string) at <var class="var">index</var> from <var class="var">cert</var>.  Return <code class="code">#f</code> if no OID is available at <var class="var">index</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dissuer_002ddn"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-issuer-dn</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002dissuer_002ddn'> &para;</a></span></dt>
+<dd><p>Return the distinguished name (DN) of X.509 certificate <var class="var">cert</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002ddn"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-dn</strong> <var class="def-var-arguments">cert</var><a class="copiable-link" href='#index-x509_002dcertificate_002ddn'> &para;</a></span></dt>
+<dd><p>Return the distinguished name (DN) of X.509 certificate <var class="var">cert</var>.  The form of the DN is as described in <a class="uref" href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-pkcs8_002dimport_002dx509_002dprivate_002dkey"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">pkcs8-import-x509-private-key</strong> <var class="def-var-arguments">data format [pass [encrypted]]</var><a class="copiable-link" href='#index-pkcs8_002dimport_002dx509_002dprivate_002dkey'> &para;</a></span></dt>
+<dd><p>Return a new X.509 private key object resulting from the import of <var class="var">data</var> (a uniform array) according to <var class="var">format</var>.  Optionally, if <var class="var">pass</var> is not <code class="code">#f</code>, it should be a string denoting a passphrase.  <var class="var">encrypted</var> tells whether the private key is encrypted (<code class="code">#t</code> by default).
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-import_002dx509_002dprivate_002dkey"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">import-x509-private-key</strong> <var class="def-var-arguments">data format</var><a class="copiable-link" href='#index-import_002dx509_002dprivate_002dkey'> &para;</a></span></dt>
+<dd><p>Return a new X.509 private key object resulting from the import of <var class="var">data</var> (a uniform array) according to <var class="var">format</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-import_002dx509_002dcertificate"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">import-x509-certificate</strong> <var class="def-var-arguments">data format</var><a class="copiable-link" href='#index-import_002dx509_002dcertificate'> &para;</a></span></dt>
+<dd><p>Return a new X.509 certificate object resulting from the import of <var class="var">data</var> (a uniform array) according to <var class="var">format</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-server_002dsession_002dpsk_002dusername"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">server-session-psk-username</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-server_002dsession_002dpsk_002dusername'> &para;</a></span></dt>
+<dd><p>Return the username associated with PSK server session <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dpsk_002dclient_002dcredentials_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-psk-client-credentials!</strong> <var class="def-var-arguments">cred username key key-format</var><a class="copiable-link" href='#index-set_002dpsk_002dclient_002dcredentials_0021'> &para;</a></span></dt>
+<dd><p>Set the client credentials for <var class="var">cred</var>, a PSK client credentials object.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002dpsk_002dclient_002dcredentials"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-psk-client-credentials</strong><a class="copiable-link" href='#index-make_002dpsk_002dclient_002dcredentials'> &para;</a></span></dt>
+<dd><p>Return a new PSK client credentials object.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dpsk_002dserver_002dcredentials_002dfile_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-psk-server-credentials-file!</strong> <var class="def-var-arguments">cred file</var><a class="copiable-link" href='#index-set_002dpsk_002dserver_002dcredentials_002dfile_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">file</var> as the password file for PSK server credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002dpsk_002dserver_002dcredentials"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-psk-server-credentials</strong><a class="copiable-link" href='#index-make_002dpsk_002dserver_002dcredentials'> &para;</a></span></dt>
+<dd><p>Return new PSK server credentials.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-peer_002dcertificate_002dstatus"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">peer-certificate-status</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-peer_002dcertificate_002dstatus'> &para;</a></span></dt>
+<dd><p>Verify the peer certificate for <var class="var">session</var> and return a list of <code class="code">certificate-status</code> values (such as <code class="code">certificate-status/revoked</code>), or the empty list if the certificate is valid.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dverify_002dflags_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-verify-flags!</strong> <var class="def-var-arguments">cred [flags...]</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dverify_002dflags_0021'> &para;</a></span></dt>
+<dd><p>Set the certificate verification flags to <var class="var">flags</var>, a series of <code class="code">certificate-verify</code> values.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dverify_002dlimits_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-verify-limits!</strong> <var class="def-var-arguments">cred max-bits max-depth</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dverify_002dlimits_0021'> &para;</a></span></dt>
+<dd><p>Set the verification limits of <code class="code">peer-certificate-status</code> for certificate credentials <var class="var">cred</var> to <var class="var">max_bits</var> bits for an acceptable certificate and <var class="var">max_depth</var> as the maximum depth of a certificate chain.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dkeys_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-keys!</strong> <var class="def-var-arguments">cred certs privkey</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dkeys_0021'> &para;</a></span></dt>
+<dd><p>Have certificate credentials <var class="var">cred</var> use the X.509 certificates listed in <var class="var">certs</var> and X.509 private key <var class="var">privkey</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dkey_002ddata_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-key-data!</strong> <var class="def-var-arguments">cred cert key format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dkey_002ddata_0021'> &para;</a></span></dt>
+<dd><p>Use X.509 certificate <var class="var">cert</var> and private key <var class="var">key</var>, both uniform arrays containing the X.509 certificate and key in format <var class="var">format</var>, for certificate credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002ddata_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-crl-data!</strong> <var class="def-var-arguments">cred data format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002ddata_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">data</var> (a uniform array) as the X.509 CRL (certificate revocation list) database for <var class="var">cred</var>.  On success, return the number of CRLs processed.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002ddata_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-trust-data!</strong> <var class="def-var-arguments">cred data format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002ddata_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">data</var> (a uniform array) as the X.509 trust database for <var class="var">cred</var>.  On success, return the number of certificates processed.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002dfile_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-crl-file!</strong> <var class="def-var-arguments">cred file format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002dfile_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">file</var> as the X.509 CRL (certificate revocation list) file for certificate credentials <var class="var">cred</var>.  On success, return the number of CRLs processed.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002dfile_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-trust-file!</strong> <var class="def-var-arguments">cred file format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002dfile_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">file</var> as the X.509 trust file for certificate credentials <var class="var">cred</var>.  On success, return the number of certificates processed.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002dx509_002dkey_002dfiles_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-x509-key-files!</strong> <var class="def-var-arguments">cred cert-file key-file format</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002dx509_002dkey_002dfiles_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">file</var> as the password file for PSK server credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dcertificate_002dcredentials_002ddh_002dparameters_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-certificate-credentials-dh-parameters!</strong> <var class="def-var-arguments">cred dh-params</var><a class="copiable-link" href='#index-set_002dcertificate_002dcredentials_002ddh_002dparameters_0021'> &para;</a></span></dt>
+<dd><p>Use Diffie-Hellman parameters <var class="var">dh_params</var> for certificate credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002dcertificate_002dcredentials"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-certificate-credentials</strong><a class="copiable-link" href='#index-make_002dcertificate_002dcredentials'> &para;</a></span></dt>
+<dd><p>Return new certificate credentials (i.e., for use with either X.509 or OpenPGP certificates.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002danonymous_002dserver_002ddh_002dparameters_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-anonymous-server-dh-parameters!</strong> <var class="def-var-arguments">cred dh-params</var><a class="copiable-link" href='#index-set_002danonymous_002dserver_002ddh_002dparameters_0021'> &para;</a></span></dt>
+<dd><p>Set the Diffie-Hellman parameters of anonymous server credentials <var class="var">cred</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002danonymous_002dclient_002dcredentials"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-anonymous-client-credentials</strong><a class="copiable-link" href='#index-make_002danonymous_002dclient_002dcredentials'> &para;</a></span></dt>
+<dd><p>Return anonymous client credentials.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002danonymous_002dserver_002dcredentials"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-anonymous-server-credentials</strong><a class="copiable-link" href='#index-make_002danonymous_002dserver_002dcredentials'> &para;</a></span></dt>
+<dd><p>Return anonymous server credentials.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002ddh_002dprime_002dbits_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-dh-prime-bits!</strong> <var class="def-var-arguments">session bits</var><a class="copiable-link" href='#index-set_002dsession_002ddh_002dprime_002dbits_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">bits</var> DH prime bits for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-pkcs3_002dexport_002ddh_002dparameters-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">pkcs3-export-dh-parameters</strong> <var class="def-var-arguments">dh-params format</var><a class="copiable-link" href='#index-pkcs3_002dexport_002ddh_002dparameters-1'> &para;</a></span></dt>
+<dd><p>Export Diffie-Hellman parameters <var class="var">dh_params</var> in PKCS3 format according for <var class="var">format</var> (an <code class="code">x509-certificate-format</code> value).  Return a <code class="code">u8vector</code> containing the result.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-pkcs3_002dimport_002ddh_002dparameters"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">pkcs3-import-dh-parameters</strong> <var class="def-var-arguments">array format</var><a class="copiable-link" href='#index-pkcs3_002dimport_002ddh_002dparameters'> &para;</a></span></dt>
+<dd><p>Import Diffie-Hellman parameters in PKCS3 format (further specified by <var class="var">format</var>, an <code class="code">x509-certificate-format</code> value) from <var class="var">array</var> (a homogeneous array) and return a new <code class="code">dh-params</code> object.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002ddh_002dparameters-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-dh-parameters</strong> <var class="def-var-arguments">bits</var><a class="copiable-link" href='#index-make_002ddh_002dparameters-1'> &para;</a></span></dt>
+<dd><p>Return new Diffie-Hellman parameters.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002dtransport_002dport_0021-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-transport-port!</strong> <var class="def-var-arguments">session port</var><a class="copiable-link" href='#index-set_002dsession_002dtransport_002dport_0021-1'> &para;</a></span></dt>
+<dd><p>Use <var class="var">port</var> as the input/output port for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002dtransport_002dfd_0021-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-transport-fd!</strong> <var class="def-var-arguments">session fd</var><a class="copiable-link" href='#index-set_002dsession_002dtransport_002dfd_0021-1'> &para;</a></span></dt>
+<dd><p>Use file descriptor <var class="var">fd</var> as the underlying transport for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002drecord_002dport_002dclose_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-record-port-close!</strong> <var class="def-var-arguments">port close</var><a class="copiable-link" href='#index-set_002dsession_002drecord_002dport_002dclose_0021'> &para;</a></span></dt>
+<dd><p>Set <var class="var">close</var>, a one-argument procedure, as the procedure called when <var class="var">port</var> is closed.  <var class="var">close</var> will be passed <var class="var">port</var>.  It may be called when <code class="code">close-port</code> is called on <var class="var">port</var>, or when <var class="var">port</var> is garbage-collected.  It is a useful way to free resources associated with <var class="var">port</var> such as the session&rsquo;s transport file descriptor or port.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002drecord_002dport-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-record-port</strong> <var class="def-var-arguments">session [close]</var><a class="copiable-link" href='#index-session_002drecord_002dport-1'> &para;</a></span></dt>
+<dd><p>Return a read-write port that may be used to communicate over <var class="var">session</var>.  All invocations of <code class="code">session-port</code> on a given session return the same object (in the sense of <code class="code">eq?</code>).
+</p>
+<p>If <var class="var">close</var> is provided, it must be a one-argument procedure, and it will be called when the returned port is closed.  This is equivalent to setting it by calling <code class="code">set-session-record-port-close!</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-record_002dreceive_0021-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">record-receive!</strong> <var class="def-var-arguments">session array</var><a class="copiable-link" href='#index-record_002dreceive_0021-1'> &para;</a></span></dt>
+<dd><p>Receive data from <var class="var">session</var> into <var class="var">array</var>, a uniform homogeneous array.  Return the number of bytes actually received.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-record_002dsend-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">record-send</strong> <var class="def-var-arguments">session array</var><a class="copiable-link" href='#index-record_002dsend-1'> &para;</a></span></dt>
+<dd><p>Send the record constituted by <var class="var">array</var> through <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002dserver_002dname_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-server-name!</strong> <var class="def-var-arguments">session type name</var><a class="copiable-link" href='#index-set_002dsession_002dserver_002dname_0021'> &para;</a></span></dt>
+<dd><p>For a client, this procedure provides a way to inform the server that it is known under <var class="var">name</var>, <i class="i">via</i> the <code class="code">SERVER NAME</code> TLS extension.  <var class="var">type</var> must be a <code class="code">server-name-type</code> value, <var class="var">server-name-type/dns</var> for DNS names.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002dcredentials_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-credentials!</strong> <var class="def-var-arguments">session cred</var><a class="copiable-link" href='#index-set_002dsession_002dcredentials_0021'> &para;</a></span></dt>
+<dd><p>Use <var class="var">cred</var> as <var class="var">session</var>&rsquo;s credentials.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-cipher_002dsuite_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">cipher-suite-&gt;string</strong> <var class="def-var-arguments">kx cipher mac</var><a class="copiable-link" href='#index-cipher_002dsuite_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return the name of the given cipher suite.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002dpriorities_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-priorities!</strong> <var class="def-var-arguments">session priorities</var><a class="copiable-link" href='#index-set_002dsession_002dpriorities_0021'> &para;</a></span></dt>
+<dd><p>Have <var class="var">session</var> use the given <var class="var">priorities</var> for the ciphers, key exchange methods, MACs and compression methods.  <var class="var">priorities</var> must be a string (see <a data-manual="gnutls" href="http://www.gnutls.org/manual/gnutls.html#Priority-Strings">Priority Strings</a> in <cite class="cite">GnuTLS, Transport Layer Security Library for the GNU system</cite>).  When <var class="var">priorities</var> cannot be parsed, an <code class="code">error/invalid-request</code> error is raised, with an extra argument indication the position of the error.
+</p>
+</dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dsession_002ddefault_002dpriority_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-session-default-priority!</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-set_002dsession_002ddefault_002dpriority_0021'> &para;</a></span></dt>
+<dd><p>Have <var class="var">session</var> use the default priorities.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-set_002dserver_002dsession_002dcertificate_002drequest_0021"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">set-server-session-certificate-request!</strong> <var class="def-var-arguments">session request</var><a class="copiable-link" href='#index-set_002dserver_002dsession_002dcertificate_002drequest_0021'> &para;</a></span></dt>
+<dd><p>Tell how <var class="var">session</var>, a server-side session, should deal with certificate requests.  <var class="var">request</var> should be either <code class="code">certificate-request/request</code> or <code class="code">certificate-request/require</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dour_002dcertificate_002dchain"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-our-certificate-chain</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dour_002dcertificate_002dchain'> &para;</a></span></dt>
+<dd><p>Return our certificate chain for <var class="var">session</var> (as sent to the peer) in raw format (a u8vector).  In the case of OpenPGP there is exactly one certificate.  Return the empty list if no certificate was used.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dpeer_002dcertificate_002dchain"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-peer-certificate-chain</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dpeer_002dcertificate_002dchain'> &para;</a></span></dt>
+<dd><p>Return the a list of certificates in raw format (u8vectors) where the first one is the peer&rsquo;s certificate.  In the case of OpenPGP, there is always exactly one certificate.  In the case of X.509, subsequent certificates indicate form a certificate chain.  Return the empty list if no certificate was sent.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dclient_002dauthentication_002dtype"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-client-authentication-type</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dclient_002dauthentication_002dtype'> &para;</a></span></dt>
+<dd><p>Return the client authentication type (a <code class="code">credential-type</code> value) used in <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dserver_002dauthentication_002dtype"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-server-authentication-type</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dserver_002dauthentication_002dtype'> &para;</a></span></dt>
+<dd><p>Return the server authentication type (a <code class="code">credential-type</code> value) used in <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dauthentication_002dtype"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-authentication-type</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dauthentication_002dtype'> &para;</a></span></dt>
+<dd><p>Return the authentication type (a <code class="code">credential-type</code> value) used by <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dprotocol"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-protocol</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dprotocol'> &para;</a></span></dt>
+<dd><p>Return the protocol used by <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dcertificate_002dtype"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-certificate-type</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dcertificate_002dtype'> &para;</a></span></dt>
+<dd><p>Return <var class="var">session</var>&rsquo;s certificate type.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dcompression_002dmethod"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-compression-method</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dcompression_002dmethod'> &para;</a></span></dt>
+<dd><p>Return <var class="var">session</var>&rsquo;s compression method.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dmac"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-mac</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dmac'> &para;</a></span></dt>
+<dd><p>Return <var class="var">session</var>&rsquo;s MAC.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dkx"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-kx</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dkx'> &para;</a></span></dt>
+<dd><p>Return <var class="var">session</var>&rsquo;s kx.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_002dcipher-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session-cipher</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-session_002dcipher-1'> &para;</a></span></dt>
+<dd><p>Return <var class="var">session</var>&rsquo;s cipher.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-alert_002dsend"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">alert-send</strong> <var class="def-var-arguments">session level alert</var><a class="copiable-link" href='#index-alert_002dsend'> &para;</a></span></dt>
+<dd><p>Send <var class="var">alert</var> via <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-alert_002dget"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">alert-get</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-alert_002dget'> &para;</a></span></dt>
+<dd><p>Get an aleter from <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-reauthenticate"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">reauthenticate</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-reauthenticate'> &para;</a></span></dt>
+<dd><p>Perform a re-authentication step for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-rehandshake"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">rehandshake</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-rehandshake'> &para;</a></span></dt>
+<dd><p>Perform a re-handshaking for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-handshake"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">handshake</strong> <var class="def-var-arguments">session</var><a class="copiable-link" href='#index-handshake'> &para;</a></span></dt>
+<dd><p>Perform a handshake for <var class="var">session</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-bye"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">bye</strong> <var class="def-var-arguments">session how</var><a class="copiable-link" href='#index-bye'> &para;</a></span></dt>
+<dd><p>Close <var class="var">session</var> according to <var class="var">how</var>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-make_002dsession"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">make-session</strong> <var class="def-var-arguments">end [flags...]</var><a class="copiable-link" href='#index-make_002dsession'> &para;</a></span></dt>
+<dd><p>Return a new session for connection end <var class="var">end</var>, either <code class="code">connection-end/server</code> or <code class="code">connection-end/client</code>.  The optional <var class="var">flags</var> arguments are <code class="code">connection-flag</code> values such as <code class="code">connection-flag/auto-reauth</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-gnutls_002dversion"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">gnutls-version</strong><a class="copiable-link" href='#index-gnutls_002dversion'> &para;</a></span></dt>
+<dd><p>Return a string denoting the version number of the underlying GnuTLS library, e.g., <code class="code">&quot;1.7.2&quot;</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-openpgp_002dkeyring_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">openpgp-keyring?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-openpgp_002dkeyring_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">openpgp-keyring</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-openpgp_002dprivate_002dkey_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">openpgp-private-key?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-openpgp_002dprivate_002dkey_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">openpgp-private-key</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-openpgp_002dcertificate_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">openpgp-certificate?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-openpgp_002dcertificate_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">openpgp-certificate</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dprivate_002dkey_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-private-key?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-x509_002dprivate_002dkey_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">x509-private-key</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-x509_002dcertificate_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">x509-certificate</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-psk_002dclient_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">psk-client-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-psk_002dclient_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">psk-client-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-psk_002dserver_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">psk-server-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-psk_002dserver_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">psk-server-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-srp_002dclient_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">srp-client-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-srp_002dclient_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">srp-client-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-srp_002dserver_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">srp-server-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-srp_002dserver_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">srp-server-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-certificate_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">certificate-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-certificate_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">certificate-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-dh_002dparameters_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">dh-parameters?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-dh_002dparameters_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">dh-parameters</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-anonymous_002dserver_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">anonymous-server-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-anonymous_002dserver_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">anonymous-server-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-anonymous_002dclient_002dcredentials_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">anonymous-client-credentials?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-anonymous_002dclient_002dcredentials_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">anonymous-client-credentials</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-session_003f"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">session?</strong> <var class="def-var-arguments">obj</var><a class="copiable-link" href='#index-session_003f'> &para;</a></span></dt>
+<dd><p>Return true if <var class="var">obj</var> is of type <code class="code">session</code>.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-openpgp_002dcertificate_002dformat_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">openpgp-certificate-format-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-openpgp_002dcertificate_002dformat_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">openpgp-certificate-format</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-error_002d_003estring-1"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">error-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-error_002d_003estring-1'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">error</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-certificate_002dverify_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">certificate-verify-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-certificate_002dverify_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">certificate-verify</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-key_002dusage_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">key-usage-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-key_002dusage_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">key-usage</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-psk_002dkey_002dformat_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">psk-key-format-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-psk_002dkey_002dformat_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">psk-key-format</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-server_002dname_002dtype_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">server-name-type-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-server_002dname_002dtype_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">server-name-type</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-sign_002dalgorithm_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">sign-algorithm-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-sign_002dalgorithm_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">sign-algorithm</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-pk_002dalgorithm_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">pk-algorithm-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-pk_002dalgorithm_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">pk-algorithm</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dsubject_002dalternative_002dname_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-subject-alternative-name-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-x509_002dsubject_002dalternative_002dname_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">x509-subject-alternative-name</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-x509_002dcertificate_002dformat_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">x509-certificate-format-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-x509_002dcertificate_002dformat_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">x509-certificate-format</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-certificate_002dtype_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">certificate-type-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-certificate_002dtype_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">certificate-type</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-protocol_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">protocol-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-protocol_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">protocol</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-close_002drequest_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">close-request-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-close_002drequest_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">close-request</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-certificate_002drequest_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">certificate-request-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-certificate_002drequest_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">certificate-request</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-certificate_002dstatus_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">certificate-status-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-certificate_002dstatus_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">certificate-status</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-handshake_002ddescription_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">handshake-description-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-handshake_002ddescription_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">handshake-description</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-alert_002ddescription_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">alert-description-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-alert_002ddescription_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">alert-description</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-alert_002dlevel_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">alert-level-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-alert_002dlevel_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">alert-level</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-connection_002dflag_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">connection-flag-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-connection_002dflag_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">connection-flag</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-connection_002dend_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">connection-end-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-connection_002dend_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">connection-end</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-compression_002dmethod_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">compression-method-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-compression_002dmethod_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">compression-method</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-digest_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">digest-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-digest_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">digest</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-mac_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">mac-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-mac_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">mac</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-credentials_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">credentials-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-credentials_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">credentials</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-params_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">params-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-params_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">params</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-kx_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">kx-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-kx_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">kx</code> value.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-cipher_002d_003estring"><span class="category-def">Scheme Procedure: </span><span><strong class="def-name">cipher-&gt;string</strong> <var class="def-var-arguments">enumval</var><a class="copiable-link" href='#index-cipher_002d_003estring'> &para;</a></span></dt>
+<dd><p>Return a string describing <var class="var">enumval</var>, a <code class="code">cipher</code> value.
+</p></dd></dl>
+
+
+<hr>
+</div>
+<div class="appendix-level-extent" id="Copying-Information">
+<div class="nav-panel">
+<p>
+Next: <a href="#Procedure-Index" accesskey="n" rel="next">Procedure Index</a>, Previous: <a href="#Guile-Reference" accesskey="p" rel="prev">Guile Reference</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="appendix" id="Copying-Information-1">Appendix A Copying Information</h2>
+<a class="index-entry-id" id="index-FDL_002c-GNU-Free-Documentation-License"></a>
+
+<h3 class="heading" id="GNU-Free-Documentation-License">GNU Free Documentation License</h3>
+
+<div class="center">Version 1.3, 3 November 2008
+</div>
+
+<div class="display">
+<pre class="display-preformatted">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a class="uref" href="https://fsf.org/">https://fsf.org/</a>
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</pre></div>
+
+<ol class="enumerate" start="0">
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em class="dfn">free</em> in the sense of freedom: to
+assure everyone the effective freedom to copy and redistribute it,
+with or without modifying it, either commercially or noncommercially.
+Secondarily, this License preserves for the author and publisher a way
+to get credit for their work, while not being considered responsible
+for modifications made by others.
+</p>
+<p>This License is a kind of &ldquo;copyleft&rdquo;, which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+</p>
+<p>We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+</p>
+</li><li> APPLICABILITY AND DEFINITIONS
+
+<p>This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License.  Such a notice grants a
+world-wide, royalty-free license, unlimited in duration, to use that
+work under the conditions stated herein.  The &ldquo;Document&rdquo;, below,
+refers to any such manual or work.  Any member of the public is a
+licensee, and is addressed as &ldquo;you&rdquo;.  You accept the license if you
+copy, modify or distribute the work in a way requiring permission
+under copyright law.
+</p>
+<p>A &ldquo;Modified Version&rdquo; of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+</p>
+<p>A &ldquo;Secondary Section&rdquo; is a named appendix or a front-matter section
+of the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document&rsquo;s overall
+subject (or to related matters) and contains nothing that could fall
+directly within that overall subject.  (Thus, if the Document is in
+part a textbook of mathematics, a Secondary Section may not explain
+any mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+</p>
+<p>The &ldquo;Invariant Sections&rdquo; are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.  If a
+section does not fit the above definition of Secondary then it is not
+allowed to be designated as Invariant.  The Document may contain zero
+Invariant Sections.  If the Document does not identify any Invariant
+Sections then there are none.
+</p>
+<p>The &ldquo;Cover Texts&rdquo; are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.  A Front-Cover Text may
+be at most 5 words, and a Back-Cover Text may be at most 25 words.
+</p>
+<p>A &ldquo;Transparent&rdquo; copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, that is suitable for revising the document
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup, or absence of markup, has been arranged to thwart
+or discourage subsequent modification by readers is not Transparent.
+An image format is not Transparent if used for any substantial amount
+of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
+</p>
+<p>Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, LaTeX input
+format, SGML or XML using a publicly available
+DTD, and standard-conforming simple HTML,
+PostScript or PDF designed for human modification.  Examples
+of transparent image formats include PNG, XCF and
+JPG.  Opaque formats include proprietary formats that can be
+read and edited only by proprietary word processors, SGML or
+XML for which the DTD and/or processing tools are
+not generally available, and the machine-generated HTML,
+PostScript or PDF produced by some word processors for
+output purposes only.
+</p>
+<p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, &ldquo;Title Page&rdquo; means
+the text near the most prominent appearance of the work&rsquo;s title,
+preceding the beginning of the body of the text.
+</p>
+<p>The &ldquo;publisher&rdquo; means any person or entity that distributes copies
+of the Document to the public.
+</p>
+<p>A section &ldquo;Entitled XYZ&rdquo; means a named subunit of the Document whose
+title either is precisely XYZ or contains XYZ in parentheses following
+text that translates XYZ in another language.  (Here XYZ stands for a
+specific section name mentioned below, such as &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, &ldquo;Endorsements&rdquo;, or &ldquo;History&rdquo;.)  To &ldquo;Preserve the Title&rdquo;
+of such a section when you modify the Document means that it remains a
+section &ldquo;Entitled XYZ&rdquo; according to this definition.
+</p>
+<p>The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document.  These Warranty
+Disclaimers are considered to be included by reference in this
+License, but only as regards disclaiming warranties: any other
+implication that these Warranty Disclaimers may have is void and has
+no effect on the meaning of this License.
+</p>
+</li><li> VERBATIM COPYING
+
+<p>You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+</p>
+<p>You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+</p>
+</li><li> COPYING IN QUANTITY
+
+<p>If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document&rsquo;s license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+</p>
+<p>If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+</p>
+<p>If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute an
+Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+</p>
+<p>It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+</p>
+</li><li> MODIFICATIONS
+
+<p>You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+</p>
+<ol class="enumerate" type="A" start="1">
+<li> Use in the Title Page (and on the covers, if any) a title distinct
+from that of the Document, and from those of previous versions
+(which should, if there were any, be listed in the History section
+of the Document).  You may use the same title as a previous version
+if the original publisher of that version gives permission.
+
+</li><li> List on the Title Page, as authors, one or more persons or entities
+responsible for authorship of the modifications in the Modified
+Version, together with at least five of the principal authors of the
+Document (all of its principal authors, if it has fewer than five),
+unless they release you from this requirement.
+
+</li><li> State on the Title page the name of the publisher of the
+Modified Version, as the publisher.
+
+</li><li> Preserve all the copyright notices of the Document.
+
+</li><li> Add an appropriate copyright notice for your modifications
+adjacent to the other copyright notices.
+
+</li><li> Include, immediately after the copyright notices, a license notice
+giving the public permission to use the Modified Version under the
+terms of this License, in the form shown in the Addendum below.
+
+</li><li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document&rsquo;s license notice.
+
+</li><li> Include an unaltered copy of this License.
+
+</li><li> Preserve the section Entitled &ldquo;History&rdquo;, Preserve its Title, and add
+to it an item stating at least the title, year, new authors, and
+publisher of the Modified Version as given on the Title Page.  If
+there is no section Entitled &ldquo;History&rdquo; in the Document, create one
+stating the title, year, authors, and publisher of the Document as
+given on its Title Page, then add an item describing the Modified
+Version as stated in the previous sentence.
+
+</li><li> Preserve the network location, if any, given in the Document for
+public access to a Transparent copy of the Document, and likewise
+the network locations given in the Document for previous versions
+it was based on.  These may be placed in the &ldquo;History&rdquo; section.
+You may omit a network location for a work that was published at
+least four years before the Document itself, or if the original
+publisher of the version it refers to gives permission.
+
+</li><li> For any section Entitled &ldquo;Acknowledgements&rdquo; or &ldquo;Dedications&rdquo;, Preserve
+the Title of the section, and preserve in the section all the
+substance and tone of each of the contributor acknowledgements and/or
+dedications given therein.
+
+</li><li> Preserve all the Invariant Sections of the Document,
+unaltered in their text and in their titles.  Section numbers
+or the equivalent are not considered part of the section titles.
+
+</li><li> Delete any section Entitled &ldquo;Endorsements&rdquo;.  Such a section
+may not be included in the Modified Version.
+
+</li><li> Do not retitle any existing section to be Entitled &ldquo;Endorsements&rdquo; or
+to conflict in title with any Invariant Section.
+
+</li><li> Preserve any Warranty Disclaimers.
+</li></ol>
+
+<p>If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version&rsquo;s license notice.
+These titles must be distinct from any other section titles.
+</p>
+<p>You may add a section Entitled &ldquo;Endorsements&rdquo;, provided it contains
+nothing but endorsements of your Modified Version by various
+parties&mdash;for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+</p>
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+</p>
+<p>The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+</p>
+</li><li> COMBINING DOCUMENTS
+
+<p>You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice, and that you preserve all their Warranty Disclaimers.
+</p>
+<p>The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+</p>
+<p>In the combination, you must combine any sections Entitled &ldquo;History&rdquo;
+in the various original documents, forming one section Entitled
+&ldquo;History&rdquo;; likewise combine any sections Entitled &ldquo;Acknowledgements&rdquo;,
+and any sections Entitled &ldquo;Dedications&rdquo;.  You must delete all
+sections Entitled &ldquo;Endorsements.&rdquo;
+</p>
+</li><li> COLLECTIONS OF DOCUMENTS
+
+<p>You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+</p>
+<p>You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+</p>
+</li><li> AGGREGATION WITH INDEPENDENT WORKS
+
+<p>A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, is called an &ldquo;aggregate&rdquo; if the copyright
+resulting from the compilation is not used to limit the legal rights
+of the compilation&rsquo;s users beyond what the individual works permit.
+When the Document is included in an aggregate, this License does not
+apply to the other works in the aggregate which are not themselves
+derivative works of the Document.
+</p>
+<p>If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half of
+the entire aggregate, the Document&rsquo;s Cover Texts may be placed on
+covers that bracket the Document within the aggregate, or the
+electronic equivalent of covers if the Document is in electronic form.
+Otherwise they must appear on printed covers that bracket the whole
+aggregate.
+</p>
+</li><li> TRANSLATION
+
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License, and all the license notices in the
+Document, and any Warranty Disclaimers, provided that you also include
+the original English version of this License and the original versions
+of those notices and disclaimers.  In case of a disagreement between
+the translation and the original version of this License or a notice
+or disclaimer, the original version will prevail.
+</p>
+<p>If a section in the Document is Entitled &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, or &ldquo;History&rdquo;, the requirement (section 4) to Preserve
+its Title (section 1) will typically require changing the actual
+title.
+</p>
+</li><li> TERMINATION
+
+<p>You may not copy, modify, sublicense, or distribute the Document
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense, or distribute it is void, and
+will automatically terminate your rights under this License.
+</p>
+<p>However, if you cease all violation of this License, then your license
+from a particular copyright holder is reinstated (a) provisionally,
+unless and until the copyright holder explicitly and finally
+terminates your license, and (b) permanently, if the copyright holder
+fails to notify you of the violation by some reasonable means prior to
+60 days after the cessation.
+</p>
+<p>Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+</p>
+<p>Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, receipt of a copy of some or all of the same material does
+not give you any rights to use it.
+</p>
+</li><li> FUTURE REVISIONS OF THIS LICENSE
+
+<p>The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+<a class="uref" href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
+</p>
+<p>Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License &ldquo;or any later version&rdquo; applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.  If the Document
+specifies that a proxy can decide which future versions of this
+License can be used, that proxy&rsquo;s public statement of acceptance of a
+version permanently authorizes you to choose that version for the
+Document.
+</p>
+</li><li> RELICENSING
+
+<p>&ldquo;Massive Multiauthor Collaboration Site&rdquo; (or &ldquo;MMC Site&rdquo;) means any
+World Wide Web server that publishes copyrightable works and also
+provides prominent facilities for anybody to edit those works.  A
+public wiki that anybody can edit is an example of such a server.  A
+&ldquo;Massive Multiauthor Collaboration&rdquo; (or &ldquo;MMC&rdquo;) contained in the
+site means any set of copyrightable works thus published on the MMC
+site.
+</p>
+<p>&ldquo;CC-BY-SA&rdquo; means the Creative Commons Attribution-Share Alike 3.0
+license published by Creative Commons Corporation, a not-for-profit
+corporation with a principal place of business in San Francisco,
+California, as well as future copyleft versions of that license
+published by that same organization.
+</p>
+<p>&ldquo;Incorporate&rdquo; means to publish or republish a Document, in whole or
+in part, as part of another Document.
+</p>
+<p>An MMC is &ldquo;eligible for relicensing&rdquo; if it is licensed under this
+License, and if all works that were first published under this License
+somewhere other than this MMC, and subsequently incorporated in whole
+or in part into the MMC, (1) had no cover texts or invariant sections,
+and (2) were thus incorporated prior to November 1, 2008.
+</p>
+<p>The operator of an MMC Site may republish an MMC contained in the site
+under CC-BY-SA on the same site at any time before August 1, 2009,
+provided the MMC is eligible for relicensing.
+</p>
+</li></ol>
+
+<h3 class="heading" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">ADDENDUM: How to use this License for your documents</h3>
+
+<p>To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+</p>
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">  Copyright (C)  <var class="var">year</var>  <var class="var">your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
+</pre></div></div>
+
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the &ldquo;with&hellip;Texts.&rdquo; line with this:
+</p>
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">    with the Invariant Sections being <var class="var">list their titles</var>, with
+    the Front-Cover Texts being <var class="var">list</var>, and with the Back-Cover Texts
+    being <var class="var">list</var>.
+</pre></div></div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+</p>
+<p>If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+</p>
+
+
+<hr>
+</div>
+<div class="unnumbered-level-extent" id="Procedure-Index">
+<div class="nav-panel">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Copying-Information" accesskey="p" rel="prev">Copying Information</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="unnumbered" id="Procedure-Index-1">Procedure Index</h2>
+
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Procedure-Index_fn_symbol-1"><b>%</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="fn-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_symbol-1">%</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025import_002dopenpgp_002dcertificate"><code>%import-openpgp-certificate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025import_002dopenpgp_002dprivate_002dkey"><code>%import-openpgp-private-key</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dalgorithm"><code>%openpgp-certificate-algorithm</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dfingerprint"><code>%openpgp-certificate-fingerprint</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dfingerprint_0021"><code>%openpgp-certificate-fingerprint!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002did"><code>%openpgp-certificate-id</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002did_0021"><code>%openpgp-certificate-id!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dname"><code>%openpgp-certificate-name</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dnames"><code>%openpgp-certificate-names</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dusage"><code>%openpgp-certificate-usage</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dcertificate_002dversion"><code>%openpgp-certificate-version</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025openpgp_002dkeyring_002dcontains_002dkey_002did_003f"><code>%openpgp-keyring-contains-key-id?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0025set_002dcertificate_002dcredentials_002dopenpgp_002dkeys_0021"><code>%set-certificate-credentials-openpgp-keys!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-alert_002ddescription_002d_003estring"><code>alert-description-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-alert_002dget"><code>alert-get</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-alert_002dlevel_002d_003estring"><code>alert-level-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-alert_002dsend"><code>alert-send</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-anonymous_002dclient_002dcredentials_003f"><code>anonymous-client-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-anonymous_002dserver_002dcredentials_003f"><code>anonymous-server-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-bye"><code>bye</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-certificate_002dcredentials_003f"><code>certificate-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-certificate_002drequest_002d_003estring"><code>certificate-request-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-certificate_002dstatus_002d_003estring"><code>certificate-status-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-certificate_002dtype_002d_003estring"><code>certificate-type-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-certificate_002dverify_002d_003estring"><code>certificate-verify-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-cipher_002d_003estring"><code>cipher-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-cipher_002dsuite_002d_003estring"><code>cipher-suite-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-close_002drequest_002d_003estring"><code>close-request-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-compression_002dmethod_002d_003estring"><code>compression-method-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-connection_002dend_002d_003estring"><code>connection-end-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-connection_002dflag_002d_003estring"><code>connection-flag-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-credentials_002d_003estring"><code>credentials-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-dh_002dparameters_003f"><code>dh-parameters?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-digest_002d_003estring"><code>digest-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-error_002d_003estring"><code>error-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Exception-Handling">Exception Handling</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-error_002d_003estring-1"><code>error-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-gnutls_002dversion"><code>gnutls-version</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-handshake"><code>handshake</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-handshake_002ddescription_002d_003estring"><code>handshake-description-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-import_002dopenpgp_002dkeyring"><code>import-openpgp-keyring</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-import_002dx509_002dcertificate"><code>import-x509-certificate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-import_002dx509_002dprivate_002dkey"><code>import-x509-private-key</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-K">K</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-key_002dusage_002d_003estring"><code>key-usage-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-kx_002d_003estring"><code>kx-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mac_002d_003estring"><code>mac-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002danonymous_002dclient_002dcredentials"><code>make-anonymous-client-credentials</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002danonymous_002dserver_002dcredentials"><code>make-anonymous-server-credentials</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002dcertificate_002dcredentials"><code>make-certificate-credentials</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002ddh_002dparameters"><code>make-dh-parameters</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Representation-of-Binary-Data">Representation of Binary Data</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002ddh_002dparameters-1"><code>make-dh-parameters</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002dpsk_002dclient_002dcredentials"><code>make-psk-client-credentials</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002dpsk_002dserver_002dcredentials"><code>make-psk-server-credentials</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-make_002dsession"><code>make-session</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-O">O</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-openpgp_002dcertificate_002dformat_002d_003estring"><code>openpgp-certificate-format-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-openpgp_002dcertificate_003f"><code>openpgp-certificate?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-openpgp_002dkeyring_003f"><code>openpgp-keyring?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-openpgp_002dprivate_002dkey_003f"><code>openpgp-private-key?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-params_002d_003estring"><code>params-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-peer_002dcertificate_002dstatus"><code>peer-certificate-status</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pk_002dalgorithm_002d_003estring"><code>pk-algorithm-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pkcs3_002dexport_002ddh_002dparameters"><code>pkcs3-export-dh-parameters</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Representation-of-Binary-Data">Representation of Binary Data</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pkcs3_002dexport_002ddh_002dparameters-1"><code>pkcs3-export-dh-parameters</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pkcs3_002dimport_002ddh_002dparameters"><code>pkcs3-import-dh-parameters</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pkcs8_002dimport_002dx509_002dprivate_002dkey"><code>pkcs8-import-x509-private-key</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-protocol_002d_003estring"><code>protocol-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-psk_002dclient_002dcredentials_003f"><code>psk-client-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-psk_002dkey_002dformat_002d_003estring"><code>psk-key-format-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-psk_002dserver_002dcredentials_003f"><code>psk-server-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-reauthenticate"><code>reauthenticate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-record_002dreceive_0021"><code>record-receive!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-record_002dreceive_0021-1"><code>record-receive!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-record_002dsend"><code>record-send</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-record_002dsend-1"><code>record-send</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-rehandshake"><code>rehandshake</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-server_002dname_002dtype_002d_003estring"><code>server-name-type-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-server_002dsession_002dpsk_002dusername"><code>server-session-psk-username</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dauthentication_002dtype"><code>session-authentication-type</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dcertificate_002dtype"><code>session-certificate-type</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dcipher"><code>session-cipher</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Enumerates-and-Constants">Enumerates and Constants</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dcipher-1"><code>session-cipher</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dclient_002dauthentication_002dtype"><code>session-client-authentication-type</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dcompression_002dmethod"><code>session-compression-method</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dkx"><code>session-kx</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dmac"><code>session-mac</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dour_002dcertificate_002dchain"><code>session-our-certificate-chain</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dpeer_002dcertificate_002dchain"><code>session-peer-certificate-chain</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dprotocol"><code>session-protocol</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002drecord_002dport"><code>session-record-port</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002drecord_002dport-1"><code>session-record-port</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_002dserver_002dauthentication_002dtype"><code>session-server-authentication-type</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-session_003f"><code>session?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002danonymous_002dserver_002ddh_002dparameters_0021"><code>set-anonymous-server-dh-parameters!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002ddh_002dparameters_0021"><code>set-certificate-credentials-dh-parameters!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dverify_002dflags_0021"><code>set-certificate-credentials-verify-flags!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dverify_002dlimits_0021"><code>set-certificate-credentials-verify-limits!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002ddata_0021"><code>set-certificate-credentials-x509-crl-data!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dcrl_002dfile_0021"><code>set-certificate-credentials-x509-crl-file!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dkey_002ddata_0021"><code>set-certificate-credentials-x509-key-data!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dkey_002dfiles_0021"><code>set-certificate-credentials-x509-key-files!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dkeys_0021"><code>set-certificate-credentials-x509-keys!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002ddata_0021"><code>set-certificate-credentials-x509-trust-data!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dcertificate_002dcredentials_002dx509_002dtrust_002dfile_0021"><code>set-certificate-credentials-x509-trust-file!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dlog_002dlevel_0021"><code>set-log-level!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dlog_002dprocedure_0021"><code>set-log-procedure!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dpsk_002dclient_002dcredentials_0021"><code>set-psk-client-credentials!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dpsk_002dserver_002dcredentials_002dfile_0021"><code>set-psk-server-credentials-file!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dserver_002dsession_002dcertificate_002drequest_0021"><code>set-server-session-certificate-request!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dcredentials_0021"><code>set-session-credentials!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002ddefault_002dpriority_0021"><code>set-session-default-priority!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002ddh_002dprime_002dbits_0021"><code>set-session-dh-prime-bits!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dpriorities_0021"><code>set-session-priorities!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002drecord_002dport_002dclose_0021"><code>set-session-record-port-close!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dserver_002dname_0021"><code>set-session-server-name!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dtransport_002dfd_0021"><code>set-session-transport-fd!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dtransport_002dfd_0021-1"><code>set-session-transport-fd!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dtransport_002dport_0021"><code>set-session-transport-port!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-set_002dsession_002dtransport_002dport_0021-1"><code>set-session-transport-port!</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-sign_002dalgorithm_002d_003estring"><code>sign-algorithm-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-srp_002dclient_002dcredentials_003f"><code>srp-client-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-srp_002dserver_002dcredentials_003f"><code>srp-server-credentials?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Procedure-Index_fn_letter-X">X</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dauthority_002dkey_002did"><code>x509-certificate-authority-key-id</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002ddn"><code>x509-certificate-dn</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002ddn_002doid"><code>x509-certificate-dn-oid</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dfingerprint"><code>x509-certificate-fingerprint</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dformat_002d_003estring"><code>x509-certificate-format-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dissuer_002ddn"><code>x509-certificate-issuer-dn</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dissuer_002ddn_002doid"><code>x509-certificate-issuer-dn-oid</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dkey_002did"><code>x509-certificate-key-id</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dkey_002dusage"><code>x509-certificate-key-usage</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dmatches_002dhostname_003f"><code>x509-certificate-matches-hostname?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dpublic_002dkey_002dalgorithm"><code>x509-certificate-public-key-algorithm</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dsignature_002dalgorithm"><code>x509-certificate-signature-algorithm</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dsubject_002dalternative_002dname"><code>x509-certificate-subject-alternative-name</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dsubject_002dkey_002did"><code>x509-certificate-subject-key-id</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_002dversion"><code>x509-certificate-version</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dcertificate_003f"><code>x509-certificate?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dprivate_002dkey_003f"><code>x509-private-key?</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-x509_002dsubject_002dalternative_002dname_002d_003estring"><code>x509-subject-alternative-name-&gt;string</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Guile-Reference">Guile Reference</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Procedure-Index_fn_symbol-1"><b>%</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Procedure-Index_fn_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+</div>
+
+<hr>
+</div>
+<div class="unnumbered-level-extent" id="Concept-Index">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Procedure-Index" accesskey="p" rel="prev">Procedure Index</a>, Up: <a href="#Top" accesskey="u" rel="up">GnuTLS-Guile</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Procedure-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="unnumbered" id="Concept-Index-1">Concept Index</h2>
+
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="cp-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-buffering">buffering</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Input-and-Output">Input and Output</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-bytevectors">bytevectors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Representation-of-Binary-Data">Representation of Binary Data</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-constant">constant</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Enumerates-and-Constants">Enumerates and Constants</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-enumerate">enumerate</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Enumerates-and-Constants">Enumerates and Constants</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-errors">errors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Exception-Handling">Exception Handling</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-exceptions">exceptions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Exception-Handling">Exception Handling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Copying-Information">Copying Information</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-gnutls_002derror"><code class="code">gnutls-error</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Exception-Handling">Exception Handling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-homogeneous-vector">homogeneous vector</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Representation-of-Binary-Data">Representation of Binary Data</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-SRFI_002d4">SRFI-4</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Representation-of-Binary-Data">Representation of Binary Data</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+</td></tr></table>
+</div>
+
+</div>
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>Historically, SRFI-4 <code class="code">u8vector</code>s are the closest
+thing to bytevectors that Guile 1.8 and earlier supported.</p>
+</div>
+
+
+
+</body>
+</html>
